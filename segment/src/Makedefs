@@ -1,0 +1,26 @@
+#
+#	Makedefs 1.2  9/5/94
+#
+
+#C_SPECIAL=-fsingle
+#C_SPECIAL=-xtarget=ultra2 -xarch=v9a
+LD_SPECIAL=
+LIBS_SPECIAL=
+
+PGM=segment
+PGM_DIR=${IPW}/contrib/bin
+
+OBJS=\
+	main.o segment.o pixel.o region.o set.o
+
+SRCS=\
+	main.c segment.c pixel.c region.c set.c
+
+default: pgm
+install: install-pgm
+
+main.o:		segment.h
+segment.o:	segment.h set.h
+pixel.o:	segment.h
+region.o:	segment.h set.h
+set.o:		set.h set_p.h

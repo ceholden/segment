@@ -1,0 +1,72 @@
+#-----------------------------------------------------------------------
+# Copyright (c) 1990 The Regents of the University of California.
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms are permitted
+# provided that: (1) source distributions retain this entire copyright
+# notice and comment, and (2) distributions including binaries display
+# the following acknowledgement:  ``This product includes software
+# developed by the Computer Systems Laboratory, University of
+# California, Santa Barbara and its contributors'' in the documentation
+# or other materials provided with the distribution and in all
+# advertising materials mentioning features or use of this software.
+#
+# Neither the name of the University nor the names of its contributors
+# may be used to endorse or promote products derived from this software
+# without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+#-----------------------------------------------------------------------
+# NB: LIB and SRCS defined here since cannot build lint lib incrementally
+
+LIB=ipw
+SRCS=\
+	args/_argv.c args/_descrip.c args/_optv.c args/cmdline.c \
+	args/getargs.c args/opt_check.c args/usage.c bih/_bih.c \
+	bih/_nohist.c bih/bihcheck.c bih/bihdup.c bih/bihmake.c \
+	bih/bihread.c bih/bihwrite.c bih/hnbands.c bih/hnbits.c \
+	bih/hnbytes.c bih/hnlines.c bih/hnsamps.c bih/hostorder.c \
+	bih/imgsize.c bih/no_history.c bih/sampsize.c error/_bug.c \
+	error/_errno.c error/_error.c error/_fderr.c error/_usrerr.c \
+	error/error.c error/syserr.c error/uferr.c error/usrerr.c \
+	error/warn.c fpio/_fpiocb.c fpio/_fpioinit.c fpio/fpclose.c \
+	fpio/fpfmax.c fpio/fpfmin.c fpio/fphdrs.c fpio/fpmap.c \
+	fpio/fpmaplen.c fpio/fpvread.c fpio/fpvwrite.c fpio/mnxfp.c \
+	geoh/geohcheck.c geoh/geohdup.c geoh/geohmake.c geoh/geohread.c \
+	geoh/geohspace.c geoh/geohwrite.c hdrio/_hdriocb.c hdrio/_hrrec.c \
+	hdrio/_hwrec.c hdrio/copyhdrs.c hdrio/gethdrs.c hdrio/hcopy.c \
+	hdrio/hgetrec.c hdrio/hpass.c hdrio/hputrec.c hdrio/hrband.c \
+	hdrio/hrname.c hdrio/hrskip.c hdrio/hrvers.c hdrio/hwprmb.c \
+	hdrio/skiphdrs.c horh/horhcheck.c horh/horhmake.c horh/horhread.c \
+	horh/horhwrite.c lqh/_lqh.c lqh/_lqharrays.c lqh/lqh.c \
+	lqh/lqhcheck.c lqh/lqhdup.c lqh/lqhinterp.c lqh/lqhmake.c \
+	lqh/lqhread.c lqh/lqhwrite.c main/ipwenter.c main/ipwexit.c \
+	orh/orhcheck.c orh/orhdup.c orh/orhmake.c orh/orhread.c \
+	orh/orhwrite.c pixio/_piocb.c pixio/_pioinit.c pixio/pvread.c \
+	pixio/pvwrite.c pixio/pxclose.c sath/sathcheck.c sath/sathdup.c \
+	sath/sathmake.c sath/sathread.c sath/sathwrite.c skewh/skewhcheck.c \
+	skewh/skewhmake.c skewh/skewhread.c skewh/skewhwrite.c \
+	strvec/addsv.c strvec/delsv.c strvec/dupsv.c strvec/ok_sv.c \
+	strvec/walksv.c sunh/sunhcheck.c sunh/sunhmake.c sunh/sunhread.c \
+	sunh/sunhwrite.c uio/_uiocb.c uio/_uioinit.c uio/_uread.c \
+	uio/_uwrite.c uio/ubof.c uio/uclose.c uio/ucopy.c uio/ueof.c \
+	uio/ufilename.c uio/ugets.c uio/uputs.c uio/uread.c uio/uremove.c \
+	uio/uropen.c uio/urskip.c uio/ustdin.c uio/ustdout.c uio/uwflush.c \
+	uio/uwopen.c uio/uwrite.c util/allocnd.c util/dtoa.c util/ecalloc.c \
+	util/frand.c util/ftoa.c util/hbit.c util/hdralloc.c util/hstrdup.c \
+	util/imgcopy.c util/itoa.c util/ltoa.c util/ltof.c util/ltoi.c \
+	util/ltou.c util/ndig.c util/no_tty.c util/pow2.c util/rmlead.c \
+	util/rmtrail.c util/strdup.c util/tdiff.c winh/winhcheck.c \
+	winh/winhdup.c winh/winhmake.c winh/winhread.c winh/winhwrite.c
+
+DIRS=\
+	args bih error fpio geoh hdrio horh lqh main orh pixio sath skewh \
+	strvec sunh uio util winh
+
+default: all
+install: all
+clean:   all
+
+# $Header: /tmp7/jimbo/ipw.v1.0/src/lib/libipw/RCS/Makedefs,v 1.7 93/02/02 16:05:47 jimbo Exp $
