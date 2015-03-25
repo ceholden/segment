@@ -42,7 +42,7 @@ static char     SCCS_ID[] = "pixel.c 2.3  5/5/89";
 
 
  /*
-  * Table of pixel offsets by orientation 
+  * Table of pixel offsets by orientation
   */
 
 cdelta          cd4_cdelta[4] = {
@@ -101,7 +101,7 @@ static void     pix_nnbr();
 static void     pix_merge();
 static long     pix_dist2();
 static void     pix_check_bounds_and_mask();
-
+
 /*
  *	Allocate storage for an image (input or mask), read it in, and set up
  *	pointers to the start of scan lines.
@@ -152,7 +152,7 @@ int             nsamps;
     }
     return (image);
 }
-
+
 /*
  *	Free doped (input or mask) image.
  */
@@ -164,7 +164,7 @@ uchar_t **img;
 /* NOSTRICT */
     free((char *) img);
 }
-
+
 /*
  *	void
  *	pixel_pass( Seg_proc Spr )
@@ -427,7 +427,7 @@ REG_5 Seg_proc  Spr;
 	    cpix.y = l;
 
 	/*
-	 * If pixel is masked out (REGION_ID == 0), we are done. 
+	 * If pixel is masked out (REGION_ID == 0), we are done.
 	 */
 	    if (!(rid = pcoord_to_regid(Spr, cpix)))
 		continue;
@@ -459,7 +459,7 @@ REG_5 Seg_proc  Spr;
  *	masked area, set the contiguity band so the region routines will
  *	never attempt to merge with a masked pixel.
  */
- 
+
 static void
 pix_check_bounds_and_mask(Spr, pc)
 REG_2 Seg_proc  Spr;
@@ -485,25 +485,25 @@ pcoord          pc;
 
  /*
   * If there is a mask image, check to see if this pixel is next to any pixel
-  * that has been masked out. 
+  * that has been masked out.
   */
     if (sf_get(Spr, SF_MASK)) {
 	for (d = 0; d < Ncdir; d++) {
 
 	/*
-	 * For every neighbor that is in bounds but not part of this region, 
+	 * For every neighbor that is in bounds but not part of this region,
 	 */
 	    if (!has_contig(*Curmap, d)) {
 		set_pcoord_from_dir(npix, pc, d);
 
 	    /*
-	     * Is it masked out? 
+	     * Is it masked out?
 	     */
 		if (!pcoord_to_mask(Spr, npix))
 
 		/*
 		 * Yes.  Set contiguity band bit so we never try to merge
-		 * with it. 
+		 * with it.
 		 */
 		    set_nnbr(*Curmap, d);
 	    }

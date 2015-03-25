@@ -280,7 +280,7 @@ Seg_proc        Spr;
         }
     }
 }
-
+
 void
 do_headers(Spr, ifd, mfd)
 Seg_proc        Spr;

@@ -64,7 +64,7 @@ typedef struct {
     int             nnormin;		/* -n minimum # of pixels for "normal"
     					 *  regions */
     int             nviable;		/* -n viable region # of pixels */
-    int             nmax;		/* -n maximum # of pixels before 
+    int             nmax;		/* -n maximum # of pixels before
     					 *  auxiliary passes */
     int             nabsmax;		/* -n absolute maximum # of pixels */
     float           nblow;		/* "normality" (-N) lower bound */
@@ -80,7 +80,7 @@ typedef struct {
     int             apass;		/* auxiliary pass # */
     long            nreg;		/* current # of regions */
     long            maxreg;		/* current # of slots in region list */
-    long            merge_attempts;	/* # of (normal) merges attempted on 
+    long            merge_attempts;	/* # of (normal) merges attempted on
     					 *  current pass */
     long            special_merge_attempts; /* # (special) merges attempted
     					 *  on current pass */
@@ -108,9 +108,9 @@ typedef struct {
     					 *  distance on this pass */
     int             maxpix;		/* max # of pixels in resultant
     					 * region this pass */
-    int             absminpix;		/* min # of pixels in special region 
+    int             absminpix;		/* min # of pixels in special region
     					 *  during this (auxiliary) pass */
-    int             norminpix;		/* min # of pixels in normal region 
+    int             norminpix;		/* min # of pixels in normal region
     					 *  during this (auxiliary) pass */
     uchar_t       **image;		/* ptr to dope vectored, band
     					 *  interleaved by pixel image */
@@ -134,7 +134,7 @@ typedef struct {
     					 *  region list necessary to trigger
     					 *  garbage collection */
 }               seg_proc, *Seg_proc;
-
+
 /*
  *	struct to transfer region list data to hsegment
  */
@@ -146,7 +146,7 @@ typedef struct {
 }               reglist;
 
  /*
-  * Table of flags used to code the contiguity band 
+  * Table of flags used to code the contiguity band
   */
 
 #define DF_N	1<<0
@@ -230,7 +230,7 @@ typedef struct {
 #define dir_reverse(dir)	((d + Ncdir/2 ) % Ncdir)
 
 
-// BITS macro appears to be missing and this is the best guess 
+// BITS macro appears to be missing and this is the best guess
 // as to how it should look like
 #define BITS(X) (sizeof(X) * 8)
 
@@ -240,14 +240,19 @@ typedef struct {
 #define SMERGE_COEFF	0.001
 
 
+// segment.c
 void            segment();
 void            do_headers();
+// pixel.c
 uchar_t       **read_image();
 void            pixel_pass();
+// region.c
 void            make_region_list();
 void            region_from_pixel();
 void            merge_regions();
+// pixel.c
 void            free_image();
+// region.c
 void            seg_pass();
 void            seg_apass();
 void            init_d2hist();
