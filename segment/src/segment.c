@@ -56,13 +56,13 @@ int             m_fd;
     /*
      * Read in input image data
      */
-    Spr->image = read_image(i_fd, Spr->nbands, Spr->nlines, Spr->nsamps);
+    Spr->image = read_image(i_fd, Spr->nbands, Spr->nlines, Spr->nsamps); // #IO
 
     /*
      * If there is a mask image, read it in.
      */
     if (sf_get(Spr, SF_MASK)) {
-        Spr->imask = read_image(m_fd, 1, Spr->nlines, Spr->nsamps);
+        Spr->imask = read_image(m_fd, 1, Spr->nlines, Spr->nsamps); // #IO
     }
 
     /*
@@ -221,7 +221,7 @@ Seg_proc        Spr;
                            Spr->base,
                            Spr->pass - 1,
                            Spr->lthr);
-                    log_pass(Spr, FALSE, TRUE);
+                    log_pass(Spr, FALSE, TRUE); // #IO
                     Spr->lthr += Spr->lincr;
                     Spr->lthr2 = Spr->lthr * Spr->lthr;
                 } else {
@@ -240,7 +240,7 @@ Seg_proc        Spr;
             fflush(stdout);
         }
 
-        log_pass(Spr, FALSE, FALSE);
+        log_pass(Spr, FALSE, FALSE); // #IO
         printf("\nPass %d resulted in no merges\n", Spr->pass);
         if (sf_get(Spr, SF_LOGB)) {
             printf("%s.log.%d contains the final band file for tolerance %f\n\n",
@@ -257,7 +257,7 @@ Seg_proc        Spr;
         (void) itoa(passstr, Spr->pass);
         (void) strcpy(rfname, Spr->base);
         (void) strcat(strcat(rfname, ".rmap."), passstr);
-        wr_region_map(Spr, rfname);
+        wr_region_map(Spr, rfname); // #IO
         printf("%s.rmap.%d contains the region map image for tolerance %f\n\n",
                Spr->base,
                Spr->pass,
@@ -265,14 +265,14 @@ Seg_proc        Spr;
         if (sf_get(Spr, SF_HSEG)) {
             (void) strcpy(cfname, Spr->base);
             (void) strcat(strcat(cfname, ".cband."), passstr);
-            wr_cband(Spr, cfname);
+            wr_cband(Spr, cfname); // #IO
             printf("%s.cband.%d contains the contiguity band for tolerance %f\n\n",
                    Spr->base,
                    Spr->pass,
                    Spr->tg);
             (void) strcpy(rlfname, Spr->base);
             (void) strcat(strcat(rlfname, ".rlist."), passstr);
-            wr_rlist(Spr, rlfname);
+            wr_rlist(Spr, rlfname); // #IO
             printf("%s.rlist.%d contains the region list for tolerance %f\n\n",
                    Spr->base,
                    Spr->pass,
@@ -529,9 +529,11 @@ char           *fname;
     if (bihwrite(rfd, Spr->r_bihpp) == ERROR) {
         error("Can't write region map header to file");
     }
+    // CEHOLDEN: finish writing header
     if (boimage(rfd) == ERROR) {
         error("can't terminate region map header");
     }
+    // CEHOLDEN: write actual data
     for (l = 0; l < Spr->nlines; l++) {
         (void) pvwrite(rfd, &Spr->rband[l][0], Spr->nsamps);
     }
@@ -747,14 +749,14 @@ Seg_proc        Spr;
     (void) itoa(passstr, Spr->apass);
     (void) strcpy(arfname, Spr->base);
     (void) strcat(strcat(arfname, ".armap."), passstr);
-    wr_region_map(Spr, arfname);
+    wr_region_map(Spr, arfname); // #IO
     printf("%s.armap.%d contains the final region map image\n\n",
            Spr->base,
            Spr->apass);
     if (sf_get(Spr, SF_HSEG)) {
         (void) strcpy(cfname, Spr->base);
         (void) strcat(strcat(cfname, ".acband."), passstr);
-        wr_cband(Spr, cfname);
+        wr_cband(Spr, cfname); // #IO
         printf("%s.acband.%d contains the final contiguity band\n\n",
                Spr->base,
                Spr->apass);

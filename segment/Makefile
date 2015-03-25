@@ -11,10 +11,12 @@ SRCS    := $(shell find . -name '*.$(SRCEXT)')
 SRCDIRS := $(shell find . -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
 OBJS    := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
 
+GDAL_INC = $(shell gdal-config --cflags)
+
 DEBUG    = -g
 INCLUDES = -I./inc
-CFLAGS   = -c $(DEBUG) $(INCLUDES)
-LDFLAGS  = -lm
+CFLAGS   = -c $(DEBUG) $(INCLUDES) $(GDAL_INC)
+LDFLAGS  = -lm -lgdal
 
 .PHONY: all clean distclean
 
@@ -23,7 +25,7 @@ all: $(BINDIR)/$(APP)
 $(BINDIR)/$(APP): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
 	@echo "Linking $@..."
-	@$(CC) $(OBJS) $(LDFLAGS) -o $@
+	$(CC) $(OBJS) $(LDFLAGS) -o $@
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 	@echo "Generating dependencies for $<..."

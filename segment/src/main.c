@@ -489,7 +489,7 @@ char          **argv;
      */
 /*
     if (!got_opt(operands)) {
-	fdi = ustdin();
+        fdi = ustdin(); // #IO
     } else {
         fdi = uropen(str_arg(operands, 0));
         if (fdi == ERROR) {
@@ -498,26 +498,55 @@ char          **argv;
     }
 
     no_tty(fdi);
-
- /*
-  * Access mask file if there is one
-  */
+*/
+    /*
+     * Access mask file if there is one
+     */
+/*
     if (got_opt(opt_M)) {
-	fdm = uropen(str_arg(opt_M, 0));
-	if (fdm == ERROR) {
-	    error("can't open mask image file \"%s\"", str_arg(opt_M, 0));
-	}
-	sf_set(&sproc, SF_MASK);
+        fdm = uropen(str_arg(opt_M, 0)); // #IO
+        if (fdm == ERROR) {
+            error("can't open mask image file \"%s\"", str_arg(opt_M, 0));
+        }
+        sf_set(&sproc, SF_MASK);
+    }
+*/
+    /*
+     * Process image headers
+     */
+//    do_headers(&sproc, fdi, fdm); // #IO
+
+    /*
+     * CEHOLDEN:    replace image and mask opening and header parsing
+     *
+     *              GDAL_read_image
+     *                  sproc -> segment struct
+     *                  image filename
+     *                  mask filename
+     *
+    */
+
+    // #TODO:DELETE
+    printf("Using GDAL to process headers\n");
+
+    char *image_fn = str_arg(operands, 0);
+    char *mask_fn = "";
+    if (got_opt(opt_M)) {
+        printf("Got mask argument.\n");
+        mask_fn = (char *)malloc(sizeof(char) * strlen(str_arg(opt_M, 0)));
+        strcpy(mask_fn, str_arg(opt_M, 0));
+        sf_set(&sproc, SF_MASK);
     }
 
- /*
-  * Process image headers
-  */
-    do_headers(&sproc, fdi, fdm);
+    // #TODO:DELETE
+    printf("Image filename is: %s\n", image_fn);
+    printf("Mask filename is: %s\n", mask_fn);
 
- /*
-  * Check that the log band specification is legal
-  */
+    GDAL_process_headers(&sproc, image_fn, mask_fn);
+
+    /*
+     * Check that the log band specification is legal
+     */
     if (sf_get(&sproc, SF_LOGB) &&
             (sproc.lbno < 0 || sproc.lbno >= sproc.nbands))
         error("can't log band %d", sproc.lbno);

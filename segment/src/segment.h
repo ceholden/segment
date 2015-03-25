@@ -41,8 +41,11 @@ typedef struct {
     REGION_ID       nbr_id;
     float           nbr_d2;
 }               neighbor, *Neighbor;
-
+
 typedef struct {
+    // CEHOLDEN
+    char           *image_fn;   /* image filename */
+    char           *mask_fn;    /* mask image filename */
     int             ntols;		/* # of tolerances (-t) */
     float          *tols;		/* initially tolerance list (-t),
     					 * becomes ptr to current tolerance */
@@ -259,6 +262,8 @@ void            init_d2hist();
 void            rband_to_lband();
 void            check_region_band();
 void            compact_region_list();
+// gdal_io.c
+void            GDAL_process_headers();
 
 /*
  *	Globals for neighbor manipulation
