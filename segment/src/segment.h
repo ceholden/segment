@@ -263,6 +263,7 @@ void            rband_to_lband();
 void            check_region_band();
 void            compact_region_list();
 // gdal_io.c
+uchar_t       **GDAL_read_image();
 void            GDAL_process_headers();
 
 /*

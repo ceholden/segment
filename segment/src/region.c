@@ -53,7 +53,7 @@ pcoord          pc;
     for (band = 0; band < Spr->nbands; band++)
         Ctr[band] = P[band];
 }
-
+
 /*
  *  Merge region r2 into region r1 and unset the RF_ACTIVE flag for
  *  region r2.  This involves changing the REGION_ID for r2 in the

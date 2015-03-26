@@ -541,8 +541,10 @@ char          **argv;
     // #TODO:DELETE
     printf("Image filename is: %s\n", image_fn);
     printf("Mask filename is: %s\n", mask_fn);
+    sproc.image_fn = image_fn;
+    sproc.mask_fn = mask_fn;
 
-    GDAL_process_headers(&sproc, image_fn, mask_fn);
+    GDAL_process_headers(&sproc);
 
     /*
      * Check that the log band specification is legal

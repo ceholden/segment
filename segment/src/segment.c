@@ -56,13 +56,15 @@ int             m_fd;
     /*
      * Read in input image data
      */
-    Spr->image = read_image(i_fd, Spr->nbands, Spr->nlines, Spr->nsamps); // #IO
+    Spr->image = GDAL_read_image(Spr->image_fn);
 
     /*
      * If there is a mask image, read it in.
      */
     if (sf_get(Spr, SF_MASK)) {
-        Spr->imask = read_image(m_fd, 1, Spr->nlines, Spr->nsamps); // #IO
+        // Spr->imask = read_image(m_fd, 1, Spr->nlines, Spr->nsamps); // #IO
+        Spr->imask = GDAL_read_image(Spr->mask_fn);
+
     }
 
     /*
