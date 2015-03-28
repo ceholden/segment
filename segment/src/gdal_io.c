@@ -2,9 +2,7 @@
 
 
 uchar_t **
-// GDAL_read_image(filename)
 GDAL_read_image(hDataset)
-// char* filename;
 GDALDatasetH hDataset;
 {
     uchar_t **image;
@@ -13,12 +11,7 @@ GDALDatasetH hDataset;
     int line_size;
     int stored_image_size;
     uchar_t *row_p;
-    // GDALDatasetH hDataset;
     GDALRasterBandH hBand;
-
-//    hDataset = GDALOpen(filename, GA_ReadOnly);
-//    if( hDataset == NULL )
-//        error("Can't open input image file \"%s\"", filename);
 
     hBand = GDALGetRasterBand(hDataset, 1);
 
@@ -53,15 +46,12 @@ GDALDatasetH hDataset;
     for (b = 0; b < nbands; b++) {
         hBand = GDALGetRasterBand(hDataset, b + 1);
 
-        // TODO: try to read directly into BIP formatted "image" buffer
-        for (line = 0; line < nlines; line++) {
-            err = GDALRasterIO(hBand, GF_Read,
-                0, line, nsamps, 1,
-                scanline, nsamps, 1, GDT_Byte, 0, 0);
-            if (err != CE_None)
-                error("Could not read in image");
-            memcpy(image[line], scanline, nsamps * nbytes);
-        }
+        err = GDALRasterIO(hBand, GF_Read,
+            0, 0, nsamps, nlines,
+            image[0] + b,
+            nsamps * nbytes, nlines * nbytes,
+            GDT_Byte,
+            nbands * nbytes, nsamps * nbands * nbytes);
     }
 
     printf("Read in data\n");
