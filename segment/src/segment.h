@@ -8,6 +8,8 @@
 #include "ipw.h"
 #include "bih.h"
 
+#include "gdal.h"
+
 #ifndef LINT_CAST
 #ifdef  lint
 #define LINT_CAST(e)	( (e) ? 0 : 0 )
@@ -60,6 +62,9 @@ typedef struct {
     int             nlines;		/* # image lines */
     int             nsamps;		/* # image samples */
     int             nbands;		/* # image bands */
+    // CEHOLDEN: store image projection and geotransform
+    const char     *pszProjection;
+    double          adfGeoTransform[6];
     int             lbno;		/* log band # */
     int             nbno;		/* "normality" band # */
     int             nabsmin;		/* -n absolute minimum # of pixels

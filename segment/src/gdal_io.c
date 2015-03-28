@@ -96,6 +96,10 @@ Seg_proc Spr;
     Spr->nbands = GDALGetRasterCount(hDataset);
     if (Spr->nbands > MAXSHORT)
         error("Image has too many (%d) bands\n", Spr->nbands);
+    Spr->pszProjection = GDALGetProjectionRef(hDataset);
+    if (Spr->pszProjection == NULL || strlen(Spr->pszProjection) == 0)
+        warn("Could not get image projection\n");
+    GDALGetGeoTransform(hDataset, Spr->adfGeoTransform);
 
     hBand = GDALGetRasterBand(hDataset, 1);
 
