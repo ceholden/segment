@@ -1,11 +1,11 @@
 #include "segment.h"
 
-#include "gdal.h"
-
 
 uchar_t **
-GDAL_read_image(filename)
-char* filename;
+// GDAL_read_image(filename)
+GDAL_read_image(hDataset)
+// char* filename;
+GDALDatasetH hDataset;
 {
     uchar_t **image;
     int nlines, nsamps, nbands, nbytes;
@@ -13,12 +13,12 @@ char* filename;
     int line_size;
     int stored_image_size;
     uchar_t *row_p;
-    GDALDatasetH hDataset;
+    // GDALDatasetH hDataset;
     GDALRasterBandH hBand;
 
-    hDataset = GDALOpen(filename, GA_ReadOnly);
-    if( hDataset == NULL )
-        error("Can't open input image file \"%s\"", filename);
+//    hDataset = GDALOpen(filename, GA_ReadOnly);
+//    if( hDataset == NULL )
+//        error("Can't open input image file \"%s\"", filename);
 
     hBand = GDALGetRasterBand(hDataset, 1);
 
@@ -99,6 +99,8 @@ Seg_proc Spr;
 
     hBand = GDALGetRasterBand(hDataset, 1);
 
+    Spr->image = GDAL_read_image(hDataset);
+
     const char *type = GDALGetDataTypeName(GDALGetRasterDataType(hBand));
     if (strcmp(type, "Byte") != 0) {
         error("Image must be Byte datatype, not %s\n", type);
@@ -123,6 +125,8 @@ Seg_proc Spr;
         hBand = GDALGetRasterBand(hDataset, 1);
         if (GDALGetDataTypeName(GDALGetRasterDataType(hBand)) != "Byte")
             error("The mask image is not 1 byte per pixel");
+
+        Spr->imask = GDAL_read_image(Spr->mask_fn);
 
         GDALClose(hDataset);
 

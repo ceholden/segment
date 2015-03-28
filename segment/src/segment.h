@@ -43,7 +43,7 @@ typedef struct {
 }               neighbor, *Neighbor;
 
 typedef struct {
-    // CEHOLDEN
+    // CEHOLDEN: store image filenames
     char           *image_fn;   /* image filename */
     char           *mask_fn;    /* mask image filename */
     int             ntols;		/* # of tolerances (-t) */
