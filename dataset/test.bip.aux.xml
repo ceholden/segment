@@ -1,0 +1,57 @@
+<PAMDataset>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <Metadata>
+    <MDI key="Band_1">Band 2 - Blue</MDI>
+    <MDI key="Band_2">Band 3 - Green</MDI>
+    <MDI key="Band_3">Band 4 - Red</MDI>
+    <MDI key="Band_4">Band 5 - NIR</MDI>
+    <MDI key="Band_5">Band 6 - SWIR1</MDI>
+    <MDI key="Band_6">Band 7 - SWIR2</MDI>
+    <MDI key="Band_7">Band 10 - TIRS1</MDI>
+    <MDI key="Band_8">Band 8</MDI>
+  </Metadata>
+  <Metadata domain="ENVI">
+    <MDI key="band_names">{Band 6 - SWIR1}</MDI>
+    <MDI key="bands">1</MDI>
+    <MDI key="byte_order">0</MDI>
+    <MDI key="coordinate_system_string">{PROJCS["WGS_1984_UTM_Zone_15N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-93],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]}</MDI>
+    <MDI key="data_type">1</MDI>
+    <MDI key="description">{../test.bip}</MDI>
+    <MDI key="file_type">ENVI Standard</MDI>
+    <MDI key="header_offset">0</MDI>
+    <MDI key="interleave">bip</MDI>
+    <MDI key="lines">250</MDI>
+    <MDI key="map_info">{UTM, 1, 1, 462405, 1741815, 30, 30, 15, North,WGS-84}</MDI>
+    <MDI key="samples">250</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Description>Band 6 - SWIR1</Description>
+    <NoDataValue>-1.00000000000000E+03</NoDataValue>
+    <Histograms>
+      <HistItem>
+        <HistMin>-0.5</HistMin>
+        <HistMax>255.5</HistMax>
+        <BucketCount>256</BucketCount>
+        <IncludeOutOfRange>1</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|1|7|4|8|10|0|14|20|21|31|22|30|27|34|33|40|38|44|40|38|46|62|54|52|44|42|51|37|42|48|43|43|39|17|36|27|25|31|31|33|21|37|27|25|27|30|23|31|33|39|47|32|54|63|79|73|74|98|100|123|122|150|176|220|209|224|261|237|289|270|243|289|288|249|273|268|286|290|276|313|281|324|320|340|332|292|293|305|299|341|350|293|348|293|345|329|333|308|322|360|374|298|357|322|382|342|336|394|343|391|366|403|392|392|399|427|403|409|367|426|451|419|466|489|451|440|446|466|490|500|465|498|477|495|479|545|531|475|528|506|538|507|528|565|519|535|521|552|555|553|563|538|559|525|549|594|537|542|551|482|532|533|561|599|521|507|514|480|510|524|526|525|472|490|495|458|491|472|462|453|424|397|442|425|430|368|423|376|346|321|338|343|307|304|260|237|252|245|230|235|190|194|183|175|170|151|129|132|100|117|111|115|78|93|79|72|56|40|44|63|54|45|42|42|41|31|26|29|17|21|24|17|24|23|24|16|1297</HistCounts>
+      </HistItem>
+      <HistItem>
+        <HistMin>18.50210970464135</HistMin>
+        <HistMax>255.4978902953586</HistMax>
+        <BucketCount>237</BucketCount>
+        <IncludeOutOfRange>0</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>1|7|4|8|10|12|14|20|21|31|22|30|27|34|33|40|38|44|40|38|46|62|54|52|44|42|51|37|42|48|43|43|39|17|36|27|25|31|31|33|21|37|27|25|27|30|23|31|33|39|47|32|54|63|79|73|74|98|100|123|122|150|176|220|209|224|261|237|289|270|243|289|288|249|273|268|286|290|276|313|281|324|320|340|332|292|293|305|299|341|350|293|348|293|345|329|333|308|322|360|374|298|357|322|382|342|336|394|343|391|366|403|392|392|399|427|403|409|367|426|451|419|466|489|451|440|446|466|490|500|465|498|477|495|479|545|531|475|528|506|538|507|528|565|519|535|521|552|555|553|563|538|559|525|549|594|537|542|551|482|532|533|561|599|521|507|514|480|510|524|526|525|472|490|495|458|491|472|462|453|424|397|442|425|430|368|423|376|346|321|338|343|307|304|260|237|252|245|230|235|190|194|183|175|170|151|129|132|100|117|111|115|78|93|79|72|56|40|44|63|54|45|42|42|41|31|26|29|17|21|24|17|24|23|24|16|1297</HistCounts>
+      </HistItem>
+    </Histograms>
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">255</MDI>
+      <MDI key="STATISTICS_MEAN">155.962368</MDI>
+      <MDI key="STATISTICS_MINIMUM">19</MDI>
+      <MDI key="STATISTICS_STDDEV">44.906145590916</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

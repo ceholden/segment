@@ -1,0 +1,18 @@
+ENVI
+description = {
+test_3456.bip}
+samples = 250
+lines   = 250
+bands   = 4
+header offset = 0
+file type = ENVI Standard
+data type = 1
+interleave = bip
+byte order = 0
+map info = {UTM, 1, 1, 462405, 1741815, 30, 30, 15, North,WGS-84}
+coordinate system string = {PROJCS["WGS_1984_UTM_Zone_15N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-93],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]}
+band names = {
+Band 4 - Red,
+Band 5 - NIR,
+Band 6 - SWIR1,
+Band 7 - SWIR2}

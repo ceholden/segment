@@ -1,0 +1,280 @@
+Input image has 8 bands, 250 samples, and 250 lines
+The segmentation tolerance is 10.000000
+The merge coefficient is 0.100000
+
+Completed the calculation of pixel nearest neighbors
+Initial pass over image completed
+31609 of a possible 62500 regions are required
+
+Predicted maximum memory usage in data segment:
+	neighbor set:	20000
+	image bands:	378000
+	region list:	1643772
+
+Creating region list
+Region list created
+
+About to perform first general pass over region list
+
+Pass 1 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+19595 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 4 pixels
+Merges:	attempted=20931
+	nnbr_gone=8917
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=12014
+
+Garbage collecting region list
+Compacted region list contains 19595 regions
+
+Pass 2 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+12476 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 8 pixels
+Merges:	attempted=13199
+	nnbr_gone=6080
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=7119
+
+Garbage collecting region list
+Compacted region list contains 12476 regions
+
+Pass 3 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+8089 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 16 pixels
+Merges:	attempted=8512
+	nnbr_gone=4125
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=4387
+
+Garbage collecting region list
+Compacted region list contains 8089 regions
+
+Pass 4 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+5389 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 32 pixels
+Merges:	attempted=5706
+	nnbr_gone=3006
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=2700
+
+Garbage collecting region list
+Compacted region list contains 5389 regions
+
+Pass 5 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+3704 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 64 pixels
+Merges:	attempted=3876
+	nnbr_gone=2191
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=1685
+
+Garbage collecting region list
+Compacted region list contains 3704 regions
+
+Pass 6 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+2647 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 118 pixels
+Merges:	attempted=2788
+	nnbr_gone=1731
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=1057
+
+Garbage collecting region list
+Compacted region list contains 2647 regions
+
+Pass 7 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+1949 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 180 pixels
+Merges:	attempted=2045
+	nnbr_gone=1347
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=0
+	npix_big=0
+	merging=698
+
+Garbage collecting region list
+Compacted region list contains 1949 regions
+
+Pass 8 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+1489 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 265 pixels
+Merges:	attempted=1573
+	nnbr_gone=1094
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=19
+	npix_big=0
+	merging=460
+Pass 9 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+1149 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 311 pixels
+Merges:	attempted=1241
+	nnbr_gone=835
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=66
+	npix_big=0
+	merging=340
+
+Garbage collecting region list
+Compacted region list contains 1149 regions
+
+Pass 10 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+866 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 336 pixels
+Merges:	attempted=968
+	nnbr_gone=592
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=93
+	npix_big=0
+	merging=283
+Pass 11 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+632 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 348 pixels
+Merges:	attempted=756
+	nnbr_gone=361
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=161
+	npix_big=0
+	merging=234
+Pass 12 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+463 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 395 pixels
+Merges:	attempted=556
+	nnbr_gone=194
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=193
+	npix_big=0
+	merging=169
+
+Garbage collecting region list
+Compacted region list contains 463 regions
+
+Pass 13 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+366 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 405 pixels
+Merges:	attempted=429
+	nnbr_gone=94
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=238
+	npix_big=0
+	merging=97
+Pass 14 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+313 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 411 pixels
+Merges:	attempted=348
+	nnbr_gone=30
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=265
+	npix_big=0
+	merging=53
+Pass 15 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+301 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 413 pixels
+Merges:	attempted=310
+	nnbr_gone=7
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=291
+	npix_big=0
+	merging=12
+Pass 16 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+298 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 413 pixels
+Merges:	attempted=300
+	nnbr_gone=1
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=296
+	npix_big=0
+	merging=3
+Pass 17 completed
+Tolerance for pass was 0.316, (Tg = 10.000)
+298 regions remain after this pass
+The minimum nearest neighbor distance on this pass was 0.000
+The largest region generated on this pass contained 413 pixels
+Merges:	attempted=298
+	nnbr_gone=0
+	wrong_partner=0
+	nnbr_d2_big=0
+	both_viable=298
+	npix_big=0
+	merging=0
+
+Pass 17 resulted in no merges
+Writing region map image
+t10-m1-n15_15_100_2500_2500_myseg.rmap.17 contains the region map image for tolerance 10.000000
+
+Normal segmentation completed in 17 passes
+Starting auxiliary passes to guarantee normal regions have at least
+    15 pixels
+
+Auxiliary pass 1 completed
+298 regions remain after this pass
+The largest region generated on this pass contained 413 pixels
+The smallest normal region remaining after this pass contained 100 pixels
+Normal merges:	attempted=0
+	nnbr_gone=0
+	wrong_partner=0
+	npix_big=0
+	merging=0
+Auxiliary segmentation complete in 1 passes
+Writing region map image
+t10-m1-n15_15_100_2500_2500_myseg.armap.1 contains the final region map image
+
