@@ -19,3 +19,8 @@ Updates to Jud Harward and Curtis Woodcock's segmentation algorithm.
 - [ ] Create Python friendly binding to core segmentation algorithm
     * Would be *VERY* nice to be able to call segmentation program on NumPy arrays
 - [ ] Port other utilities useful for image segmentation from IPW
+
+### Reference
+- http://www.gdal.org/gdal_tutorial.html
+- http://www.gdal.org/gdalinfo_8c.html
+- https://github.com/rouault/gdal/blob/trunk/gdal/apps/gdal_translate.cpp
