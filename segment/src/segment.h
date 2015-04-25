@@ -63,7 +63,7 @@ typedef struct {
     int             nsamps;		/* # image samples */
     int             nbands;		/* # image bands */
     // CEHOLDEN: store image projection and geotransform
-    const char     *pszProjection;
+    char           *pszProjection;
     double          adfGeoTransform[6];
     int             lbno;		/* log band # */
     int             nbno;		/* "normality" band # */
@@ -228,7 +228,7 @@ typedef struct {
 #define pixvec(psegp,l,s)	((psegp)->image[l]+s*(psegp)->nbands)
 #define pcoord_to_mask(S,p)	(S->imask[p.y][p.x])
 #define pixmask(S,l,s)		(S->imask[l][s])
-
+
 /*
  *  Note that advance_dir advances the cdir in its argument as well as
  *  evaluating to the next orientation, while dir_reverse just evaluates
@@ -269,6 +269,7 @@ void            check_region_band();
 void            compact_region_list();
 // gdal_io.c
 uchar_t       **GDAL_read_image();
+void            GDAL_write_image();
 void            GDAL_process_headers();
 
 /*

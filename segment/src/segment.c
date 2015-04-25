@@ -247,7 +247,7 @@ Seg_proc        Spr;
         (void) itoa(passstr, Spr->pass);
         (void) strcpy(rfname, Spr->base);
         (void) strcat(strcat(rfname, ".rmap."), passstr);
-        wr_region_map(Spr, rfname); // #IO
+        GDAL_write_image(Spr, rfname); // #IO
         printf("%s.rmap.%d contains the region map image for tolerance %f\n\n",
                Spr->base,
                Spr->pass,
@@ -739,7 +739,7 @@ Seg_proc        Spr;
     (void) itoa(passstr, Spr->apass);
     (void) strcpy(arfname, Spr->base);
     (void) strcat(strcat(arfname, ".armap."), passstr);
-    wr_region_map(Spr, arfname); // #IO
+    GDAL_write_image(Spr, arfname); // #IO
     printf("%s.armap.%d contains the final region map image\n\n",
            Spr->base,
            Spr->apass);

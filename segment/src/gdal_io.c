@@ -61,6 +61,75 @@ GDALDatasetH hDataset;
 
 
 void
+GDAL_write_image(Spr, fname)
+Seg_proc Spr;
+char *fname;
+{
+    int nbits, nbytes;
+    long nregions;
+    int err;
+
+    GDALAllRegister();
+
+    // Figure out minimum datatype to use
+    GDALDataType eBufType;
+    for (nbits = 0, nregions = Spr->nreg; nregions; nbits++, nregions >>= 1);
+    if (nbits <= GDALGetDataTypeSize(GDT_Byte)) {
+        eBufType = GDT_Byte;
+        nbytes = 1;
+    } else if (nbits <= GDALGetDataTypeSize(GDT_UInt16)) {
+        eBufType = GDT_UInt16;
+        nbytes = 2;
+    } else if (nbits <= GDALGetDataTypeSize(GDT_UInt32)) {
+        eBufType = GDT_UInt32;
+        nbytes = 4;
+    // } else if (nbits <= GDALGetDataTypeSize(GDT_UInt64)) {
+    //     eBufType = GDT_UInt64;
+    } else {
+        error("Cannot determine datatype\n");
+    }
+
+    // Using ENVI driver by default for now
+    GDALDriverH hDriver = GDALGetDriverByName("ENVI");
+    GDALDatasetH hDstDs;
+    GDALRasterBandH hBand;
+    char **papszOptions = NULL;
+
+    hDstDs = GDALCreate(hDriver, fname,
+                        Spr->nlines, Spr->nsamps, 1,
+                        eBufType, papszOptions);
+    hBand = GDALGetRasterBand(hDstDs, 1);
+
+
+    double        adfGeoTransform[6];
+
+
+    // Write out
+    // err = GDALRasterIO(hBand, GF_Write,
+    //                    0, 0, Spr->nsamps, Spr->nlines,
+    //                    Spr->rband,
+    //                    Spr->nsamps, Spr->nlines,
+    //                    eBufType,
+    //                    0, 0);
+    int l;
+    for (l = 0; l < Spr->nlines; l++) {
+        GDALRasterIO(hBand, GF_Write,
+                     0, l, Spr->nsamps, 1,
+                     Spr->rband[l],
+                     Spr->nsamps * nbytes, 1,
+                     eBufType,
+                     0, 0);
+    }
+
+    // Set projection & geotransform before closing
+    GDALSetGeoTransform(hDstDs, Spr->adfGeoTransform);
+    GDALSetProjection(hDstDs, Spr->pszProjection);
+
+    GDALClose(hDstDs);
+}
+
+
+void
 GDAL_process_headers(Spr)
 Seg_proc Spr;
 {
@@ -86,9 +155,13 @@ Seg_proc Spr;
     Spr->nbands = GDALGetRasterCount(hDataset);
     if (Spr->nbands > MAXSHORT)
         error("Image has too many (%d) bands\n", Spr->nbands);
-    Spr->pszProjection = GDALGetProjectionRef(hDataset);
+    const char *pszProjection;
+    pszProjection = GDALGetProjectionRef(hDataset);
+    Spr->pszProjection = malloc(sizeof(char) * strlen(pszProjection));
+    strcpy(Spr->pszProjection, pszProjection);
     if (Spr->pszProjection == NULL || strlen(Spr->pszProjection) == 0)
         warn("Could not get image projection\n");
+    printf("Projection is: %s\n", Spr->pszProjection);
     GDALGetGeoTransform(hDataset, Spr->adfGeoTransform);
 
     hBand = GDALGetRasterBand(hDataset, 1);
