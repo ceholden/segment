@@ -1,0 +1,41 @@
+<PAMDataset>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <Metadata>
+    <MDI key="Band_1">t10-m1-n15_15_100_2500_2500_armap</MDI>
+  </Metadata>
+  <Metadata domain="ENVI">
+    <MDI key="band_names">{ t10-m1-n15_15_100_2500_2500_armap }</MDI>
+    <MDI key="bands">1</MDI>
+    <MDI key="byte_order">0</MDI>
+    <MDI key="coordinate_system_string">{PROJCS["WGS_1984_UTM_Zone_15N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-93],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]}</MDI>
+    <MDI key="data_type">12</MDI>
+    <MDI key="description">{test_3456.bip}</MDI>
+    <MDI key="file_type">ENVI Standard</MDI>
+    <MDI key="header_offset">0</MDI>
+    <MDI key="interleave">bip</MDI>
+    <MDI key="lines">250</MDI>
+    <MDI key="map_info">{UTM, 1, 1, 462405, 1741815, 30, 30, 15, North,WGS-84}</MDI>
+    <MDI key="samples">250</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Description>t10-m1-n15_15_100_2500_2500_armap</Description>
+    <Histograms>
+      <HistItem>
+        <HistMin>-1.582352941176471</HistMin>
+        <HistMax>1320.582352941176</HistMax>
+        <BucketCount>256</BucketCount>
+        <IncludeOutOfRange>1</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>82|214|174|377|259|187|420|195|144|236|196|110|281|226|234|280|193|186|288|304|257|222|277|144|164|244|305|196|254|147|190|169|354|296|192|211|174|131|210|148|352|344|370|267|319|207|240|263|172|260|214|151|212|140|171|279|131|266|221|259|239|203|441|148|297|577|483|167|265|228|202|144|250|214|340|232|172|193|123|90|268|214|200|281|279|391|651|182|231|147|297|412|217|167|231|200|431|333|245|206|368|168|344|141|416|253|213|274|325|185|260|420|263|257|239|248|123|225|313|277|159|243|158|245|658|209|213|264|217|281|166|259|176|152|150|161|257|339|205|272|198|222|142|350|176|199|202|236|213|189|173|141|188|325|188|253|278|177|184|272|238|198|226|271|232|285|198|241|195|164|152|194|328|325|251|352|311|303|148|260|291|126|228|287|204|269|687|225|288|255|171|665|217|175|199|210|174|263|145|155|180|224|164|191|336|221|218|630|191|338|486|207|136|208|194|222|261|273|216|218|230|294|229|185|206|206|168|177|214|209|197|190|169|197|197|280|540|244|139|194|188|210|100|156|218|222|281|139|294|181|190|197|203|222|208|1104</HistCounts>
+      </HistItem>
+    </Histograms>
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">1318</MDI>
+      <MDI key="STATISTICS_MEAN">641.40705882353</MDI>
+      <MDI key="STATISTICS_MINIMUM">1</MDI>
+      <MDI key="STATISTICS_STDDEV">385.51768458353</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>
