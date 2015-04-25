@@ -16,7 +16,7 @@ GDAL_INC = $(shell gdal-config --cflags)
 DEBUG    = -g
 INCLUDES = -I./inc
 CFLAGS   = -c $(DEBUG) $(INCLUDES) $(GDAL_INC)
-LDFLAGS  = -lm -lgdal
+LDFLAGS  = -lm $(shell gdal-config --libs)
 
 .PHONY: all clean distclean
 
