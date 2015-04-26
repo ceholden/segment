@@ -35,10 +35,6 @@ GDALDatasetH hDataset;
         row_p += line_size;
     }
 
-    // Temporary buffer for scanline
-    uchar_t *scanline;
-    scanline = (uchar_t *) malloc(nsamps * nbytes);
-
     printf("Trying to read in image\n");
     CPLErr err = CE_None;
     // Read in image into BIP memory layout
