@@ -735,11 +735,14 @@ REG_2 REGION_ID rid;
         REGION_ID       nnbr = 0;
 
         while (get_from_set(Nset, (addr_t) & nbr)) {
+            // BUG: mdist2 goes from MAXFLOAT to 0 on my local machine
+            //      within while loop -- why!?
             ndist2 = reg_dist2(Spr->nbands,
                                regid_to_Ctr(Spr, rid),
                                regid_to_Ctr(Spr, nbr));
-            if (ndist2 > mdist2)
+            if (ndist2 > mdist2) {
                 continue;
+            }
             else if (ndist2 < mdist2) {
                 mdist2 = ndist2;
                 nnbr = nbr;
