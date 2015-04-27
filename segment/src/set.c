@@ -265,7 +265,9 @@ addr_t          pitem;
 		break;
 
 	    case 4:
-		*((long *) LINT_CAST(pitem)) = (S->getp++)->litem;
+        // OFFENDER
+        //      on modern hardware, a long is 8 bytes and int is 4
+		*((int *) LINT_CAST(pitem)) = (S->getp++)->litem;
 		break;
 
 	    default:
