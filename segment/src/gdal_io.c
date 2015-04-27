@@ -2,8 +2,7 @@
 
 
 uchar_t **
-GDAL_read_image(hDataset)
-GDALDatasetH hDataset;
+GDAL_read_image(GDALDatasetH hDataset)
 {
     uchar_t **image;
     int nlines, nsamps, nbands, nbytes;
@@ -57,9 +56,7 @@ GDALDatasetH hDataset;
 
 
 void
-GDAL_write_image(Spr, fname)
-Seg_proc Spr;
-char *fname;
+GDAL_write_image(Seg_proc Spr, char *fname)
 {
     int nbits, nbytes;
     long nregions;
@@ -96,9 +93,7 @@ char *fname;
                         eBufType, papszOptions);
     hBand = GDALGetRasterBand(hDstDs, 1);
 
-
     double        adfGeoTransform[6];
-
 
     // Write out
     // err = GDALRasterIO(hBand, GF_Write,
@@ -126,8 +121,7 @@ char *fname;
 
 
 void
-GDAL_process_headers(Spr)
-Seg_proc Spr;
+GDAL_process_headers(Seg_proc Spr)
 {
     GDALAllRegister();
 
