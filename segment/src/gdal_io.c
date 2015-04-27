@@ -93,23 +93,18 @@ GDAL_write_image(Seg_proc Spr, char *fname)
                         eBufType, papszOptions);
     hBand = GDALGetRasterBand(hDstDs, 1);
 
-    double        adfGeoTransform[6];
-
     // Write out
-    // err = GDALRasterIO(hBand, GF_Write,
-    //                    0, 0, Spr->nsamps, Spr->nlines,
-    //                    Spr->rband,
-    //                    Spr->nsamps, Spr->nlines,
-    //                    eBufType,
-    //                    0, 0);
     int l;
     for (l = 0; l < Spr->nlines; l++) {
-        GDALRasterIO(hBand, GF_Write,
-                     0, l, Spr->nsamps, 1,
-                     Spr->rband[l],
-                     Spr->nsamps * nbytes, 1,
-                     eBufType,
-                     0, 0);
+        err = GDALRasterIO(hBand, GF_Write,
+                           0, l, Spr->nsamps, 1,
+                           Spr->rband[l],
+                           Spr->nsamps * nbytes, 1,
+                           eBufType,
+                           0, 0);
+        if (err != CE_None) {
+            error("Error writing output file %s (line %d)\n", fname, l);
+        }
     }
 
     // Set projection & geotransform before closing
