@@ -9,9 +9,9 @@ Updates to Jud Harward and Curtis Woodcock's segmentation algorithm.
     * Only import IPW components needed for segmentation
     * Working Makefile
     * Separate `segment` source from IPW dependencies
-- [ ] Create test suite for validation of progress
+- [x] Create test suite for validation of progress
     * Validate against `segment` on BU cluster
-- [ ] Replace IPW IO with newly written IO using GDAL
+- [x] Replace IPW IO with newly written IO using GDAL
 - [ ] Toggle on/off writing of region map during segmentation passes
     * I'm not sure we care so much about tracking regionmap progress anymore
     * Would speed up program if we removed IO
@@ -19,6 +19,10 @@ Updates to Jud Harward and Curtis Woodcock's segmentation algorithm.
 - [ ] Create Python friendly binding to core segmentation algorithm
     * Would be *VERY* nice to be able to call segmentation program on NumPy arrays
 - [ ] Port other utilities useful for image segmentation from IPW
+    * [ ] Utility for scaling imagery to a given range
+        + Linear 2%
+        + Histogram equalization
+    * [ ] Apply segmentation to pixel based map based on some rule (e.g., plurality)
 
 ### Reference
 - http://www.gdal.org/gdal_tutorial.html
