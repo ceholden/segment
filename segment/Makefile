@@ -17,6 +17,7 @@ DEBUG    = -g
 INCLUDES = -I./inc
 CFLAGS   = -c $(DEBUG) $(INCLUDES) $(GDAL_INC)
 LDFLAGS  = -lm $(shell gdal-config --libs)
+RPATHS   = -Wl,-rpath $(shell gdal-config --prefix)/lib
 
 .PHONY: all clean distclean
 
@@ -25,7 +26,7 @@ all: $(BINDIR)/$(APP)
 $(BINDIR)/$(APP): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
 	@echo "Linking $@..."
-	@$(CC) $(OBJS) $(LDFLAGS) -o $@
+	@$(CC) $(OBJS) $(LDFLAGS) $(RPATHS) -o $@
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 	@echo "Generating dependencies for $<..."
