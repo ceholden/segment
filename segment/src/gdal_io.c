@@ -89,7 +89,7 @@ GDAL_write_image(Seg_proc Spr, char *fname)
     char **papszOptions = NULL;
 
     hDstDs = GDALCreate(hDriver, fname,
-                        Spr->nlines, Spr->nsamps, 1,
+                        Spr->nsamps, Spr->nlines, 1,
                         eBufType, papszOptions);
     hBand = GDALGetRasterBand(hDstDs, 1);
 
